@@ -44,7 +44,6 @@ function mostrarError(mensaje) {
         <strong class="font-bold">Error!!</strong>
         <span class="block">${mensaje}</span>
      `;
-
         container.appendChild(alerta);
         //ELIMINEMOS LA ALERTA
         setTimeout(() => {
