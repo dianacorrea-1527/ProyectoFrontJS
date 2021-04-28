@@ -56,7 +56,7 @@ function mostrarError(mensaje) {
 
 
 function consultarAPI2(ciudad, pais) {
-    const apiKey = '567d4a613fe14aa4b8c00709911e98fc';
+    const apiKey = 'a0ba289ef7c64a7795e326ce2380cc3c';
     const url2 = `https://api.ipgeolocation.io/timezone?apiKey=${apiKey}&location=${ciudad},%20${pais}`;
 
 
@@ -92,7 +92,7 @@ function guardarHora(data) {
 
 
 function consultarAPI(ciudad, pais) {
-    const appID = '47f3586bf5961638beb5900079181fee';
+    const appID = '6223903643a503593a1146b43d79c8b0';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appID}`;
     console.log(url);
 
@@ -113,15 +113,26 @@ function consultarAPI(ciudad, pais) {
 
 
 function showWeather(datos) {
-    const { name, main: { temp, temp_max, temp_min, feels_like }, weather: { 0: { icon } }, dt } = datos;
+    const {
+        name,
+        main: { temp, temp_max, temp_min, feels_like, humidity, pressure },
+        clouds: { all },
+        visibility,
+        wind: { speed },
+        weather: { 0: { icon } },
+        dt
+    } = datos;
     const centigrados = kelvinACentigrados(temp);
     const max = kelvinACentigrados(temp_max);
     const min = kelvinACentigrados(temp_min);
     const sensacion = kelvinACentigrados(feels_like);
+    const humedada = unidadHumedad(humidity);
     const icono = icon;
     const horario = unixToHuman(dt);
     let imgsrc;
     let palabra;
+
+
 
     switch (true) {
         case (icono === '01d'):
@@ -198,6 +209,28 @@ function showWeather(datos) {
     cielo.innerHTML = `Cielo: ${palabra}`;
     cielo.classList.add('text-center', 'col-start-7', 'col-span-2', 'text-center');
 
+    const humedadR = document.createElement('div');
+    humedadR.innerHTML = `Humedad Relativa: ${humedada} &#8451;`;
+    humedadR.classList.add('text-center', 'col-start-5', 'col-span-2');
+
+    const nubeR = document.createElement('div');
+    nubeR.innerHTML = `cloud: ${all} &#8451;`;
+    nubeR.classList.add('text-center', 'col-start-5', 'col-span-2');
+
+    const presionR = document.createElement('div');
+    presionR.innerHTML = `presion: ${pressure} &#8451;`;
+    presionR.classList.add('text-center', 'col-start-5', 'col-span-2');
+
+    const visibilidadR = document.createElement('div');
+    visibilidadR.innerHTML = `visibilidad: ${visibility} &#8451;`;
+    visibilidadR.classList.add('text-center', 'col-start-5', 'col-span-2');
+
+    const velocidadR = document.createElement('div');
+    velocidadR.innerHTML = `velocidad: ${speed} &#8451;`;
+    velocidadR.classList.add('text-center', 'col-start-5', 'col-span-2');
+
+
+
     const resultadoDiv = document.createElement('div');
     resultadoDiv.classList.add('text-center', 'text-white', 'grid', 'grid-cols-12', 'gap-4');
     resultadoDiv.appendChild(nombreCiudad);
@@ -207,6 +240,15 @@ function showWeather(datos) {
     resultadoDiv.appendChild(minMax);
     resultadoDiv.appendChild(tempSensa);
     resultadoDiv.appendChild(cielo);
+    resultadoDiv.appendChild(humedadR);
+    resultadoDiv.appendChild(nubeR);
+    resultadoDiv.appendChild(visibilidadR);
+    resultadoDiv.appendChild(velocidadR);
+    resultadoDiv.appendChild(presionR);
+
+
+
+
     resultado.appendChild(resultadoDiv);
 
 }
@@ -214,6 +256,12 @@ function showWeather(datos) {
 function kelvinACentigrados(grados) {
     return parseInt(grados - 273.15);
 }
+
+function unidadHumedad(porcentaje) {
+    return parseInt(porcentaje / 100);
+}
+
+
 
 //CONVIRTAMOLA EN ARROW FUNCTION
 /* const kelvinACentigrados = gardos => parseInt(grados - 273.15); */
