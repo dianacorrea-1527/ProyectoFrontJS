@@ -13,25 +13,26 @@
 </head>
 
 <body>
-    <div class="container"> <!--ESte div se habia perdido...por eso no funcionaba el error-->
-        <h1 id="titulo" class="text-4xl mt-5 text-white font-bold uppercase text-center">Weather App <i class="fas fa-temperature-low"></i></h1>
-        <p class="text-center  mt-2 ml-48">Diana Correa 2021</p>
-    
-    
-    
+    <div class="container">
+        <!--ESte div se habia perdido...por eso no funcionaba el error-->
+        <h1 id="titulo" class="text-4xl mt-5 text-purple-100 text-opacity-100 font-bold uppercase text-center">Weather App <i class="fas fa-temperature-low"></i></h1>
+        <p class="text-center text-purple-200 mt-4 ml-48 uppercase text-center">Diana Correa 2021</p>
+
+
+
         <div class="p-6 mt-10">
             <div id="resultado">
-                <p class="ml3 text-center text-white mt-6">Agrega una ciudad y país, el resultado se mostrará aquí &#8711;</p>
+                <p class="ml3 text-center text-purple-400 mt-5 uppercase font-bold">Agrega una ciudad y país, el resultado se mostrará aquí &#8711;</p>
             </div>
         </div>
-        <div class="max-w-lg mx-auto ">
-            <form id="formulario" class="mt-10 " action="#" method="POST">
-                <div class="mt-5">
-                    <input type="text" name="ciudad" id="ciudad" placeholder="Escriba la Ciudad" class="w-full p-2 rounded" />
+        <div class="max-w-lg mx-auto uppercase font-bold uppercase font-bold">
+            <form id="formulario" class="mt-10 uppercase font-bold" action="#" method="POST">
+                <div class="mt-5 uppercase font-bold">
+                    <input type="text" name="ciudad" id="ciudad" placeholder="Escriba la Ciudad" class="w-full p-2 rounded uppercase font-bold" />
                 </div>
                 <div class="mt-5">
                     <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
-                        py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="pais">
+                        py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 uppercase font-bold" id="pais">
                         <option disabled selected value="">- Seleccione el Pais -</option>
                         <option value="DE">Alemania</option>
                         <option value="AR">Argentina</option>
@@ -39,6 +40,10 @@
                         <option value="BZ">Belice</option>
                         <option value="BO">Bolivia</option>
                         <option value="BR">Brasil</option>
+                        <option value="BA">Bosnia-Herzegovina</option>
+                        <option value="BE">Belgica</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="BY">Bielorusia</option>
                         <option value="CA">Canada</option>
                         <option value="CL">Chile</option>
                         <option value="CN">China</option>
@@ -54,6 +59,11 @@
                         <option value="ES">España</option>
                         <option value="US">Estados Unidos</option>
                         <option value="FR">Francia</option>
+                        <option value="FL">Finlandia</option>
+                        <option value="KE">Kenia</option>
+                        <option value="LU">Luxemburgo</option>
+                        <option value="LV">Letonia</option>
+                        <option value="MG">Madagascar</option>
                         <option value="GH">Ghana</option>
                         <option value="GR">Grecia</option>
                         <option value="NL">Holanda</option>
@@ -75,15 +85,22 @@
                         <option value="CH">Suiza</option>
                         <option value="SY">Siria</option>
                         <option value="TH">Tailandia</option>
-                        <option value="TH">Tailandia</option>
+                        <option value="QA">Qatar</option>
                         <option value="TR">Turquia</option>
                         <option value="VE">Venezuela</option>
+                        <option value="SD">Sudan</option>
+                        <option value="TW">Taiwán</option>
+                        <option value="TZ">Tanzania</option>
+                        <option value="VA">Vaticano</option>
+                        <option value="VG">Islas-Virgenes-Britanicas</option>
+                        <option value="VN">Vietnam</option>
+                        <option value="YU">Yugoslavia</option>
                         <option value="ZW">Zimbabue</option>
                         </select>
                 </div>
-    </div>
+        </div>
 
-            <input type="submit" class="mt-5 w-full bg-indigo-800 p-3  uppercase font-bold cursor-pointer rounded text-white" value="Obtener Clima" />
+        <input type="submit" class="mt-5 w-full bg-blue-800 p-3  uppercase font-bold cursor-pointer rounded text-gray-100 md:justify-between" value="Obtener Clima" />
 
         </form>
     </div>

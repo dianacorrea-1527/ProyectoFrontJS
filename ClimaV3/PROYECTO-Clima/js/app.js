@@ -11,6 +11,7 @@ window.addEventListener('load', () => {
 })
 
 
+
 function searchWeather(e) {
     e.preventDefault();
 
@@ -48,7 +49,7 @@ function mostrarError(mensaje) {
         //ELIMINEMOS LA ALERTA
         setTimeout(() => {
             alerta.remove();
-        }, 4000)
+        }, 6000)
 
     }
 }
@@ -187,15 +188,15 @@ function showWeather(datos) {
 
     const minMax = document.createElement('div');
     minMax.innerHTML = `min/Max   ${min}&#8451;/${max}&#8451;`
-    minMax.classList.add('font-bold', 'text-center', 'col-start-5', 'col-span-2');
+    minMax.classList.add('text-center', 'col-start-5', 'col-span-2');
 
     const tempSensa = document.createElement('div');
     tempSensa.innerHTML = `Sensación Termica: ${sensacion} &#8451;`;
-    tempSensa.classList.add('font-bold', 'text-center', 'col-start-5', 'col-span-2');
+    tempSensa.classList.add('text-center', 'col-start-5', 'col-span-2');
 
     const cielo = document.createElement('div');
     cielo.innerHTML = `Cielo: ${palabra}`;
-    cielo.classList.add('font-bold', 'col-start-7', 'col-span-2', 'text-center');
+    cielo.classList.add('text-center', 'col-start-7', 'col-span-2', 'text-center');
 
     const resultadoDiv = document.createElement('div');
     resultadoDiv.classList.add('text-center', 'text-white', 'grid', 'grid-cols-12', 'gap-4');
@@ -241,18 +242,10 @@ function Spinner() {
     const divSpinner = document.createElement('div');
     divSpinner.classList.add('sk-fading-circle');
     divSpinner.innerHTML = `
-    <div class="sk-circle1 sk-circle"></div>
-    <div class="sk-circle2 sk-circle"></div>
-    <div class="sk-circle3 sk-circle"></div>
-    <div class="sk-circle4 sk-circle"></div>
-    <div class="sk-circle5 sk-circle"></div>
-    <div class="sk-circle6 sk-circle"></div>
-    <div class="sk-circle7 sk-circle"></div>
-    <div class="sk-circle8 sk-circle"></div>
-    <div class="sk-circle9 sk-circle"></div>
-    <div class="sk-circle10 sk-circle"></div>
-    <div class="sk-circle11 sk-circle"></div>
-    <div class="sk-circle12 sk-circle"></div>
+    
+  <div class="cube1"></div>
+  <div class="cube2"></div>
+
     `;
 
     resultado.appendChild(divSpinner);
